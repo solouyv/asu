@@ -49,6 +49,8 @@ services:
       - .env
     networks:
       - asu-network
+    ports:
+      - "5432:5432"
 
   gns-api-gateway:
     image: "gns-api-gateway"
