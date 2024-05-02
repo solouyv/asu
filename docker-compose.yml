@@ -15,8 +15,8 @@ services:
       - ./asu_ui/config/default.conf:/etc/nginx/conf.d/default.conf
       - ./asu_ui/config/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "3081:3081"
       - "3080:3080"
+      - "3081:3081"
     networks:
       - asu-network
 
@@ -40,6 +40,20 @@ services:
       - asu-network
     stdin_open: true
     tty: true
+
+  asu-arh:
+    image: "asu-arh"
+    container_name: asu-arh
+    build:
+      context: ./asu_arh
+      dockerfile: Dockerfile
+      cache_from:
+        - "asu-arh:latest"
+    restart: always
+    networks:
+      - asu-network
+    ports:
+      - "3082:8080"
 
   asu-db:
     container_name: asu-db

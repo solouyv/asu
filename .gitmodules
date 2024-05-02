@@ -10,3 +10,6 @@
 [submodule "gns3"]
 	path = gns3
 	url = ../gns3.git
+[submodule "asu_arh"]
+	path = asu_arh
+	url = ../asu-arh.git
